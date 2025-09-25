@@ -1,25 +1,35 @@
 package conta_bancaria.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import conta_bancaria.model.Conta;
 import conta_bancaria.repository.ContaRepository;
 
 public class ContaController implements ContaRepository{
-
+	
+	private List<Conta> listarContas = new ArrayList<Conta>();
+	int numero = 0;
+	
 	@Override
-	public void listaTodas() {
-		// TODO Auto-generated method stub
+	public void listarTodas() {
+		for(var conta : listarContas) {
+			conta.visualizar();
+		}
+
 		
 	}
 
 	@Override
 	public void cadastrar(Conta conta) {
-		// TODO Auto-generated method stub
+		listarContas.add(conta);
+		System.out.println("Conta cadastrada com sucesso!");
 		
 	}
 
 	@Override
 	public void atualizar(Conta conta) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -48,8 +58,10 @@ public class ContaController implements ContaRepository{
 	}
 
 	@Override
-	public void depositar(int numeroOrigem, int numeroDestino, float valor) {
+	public void transferir(int numeroOrigem, int numeroDestino, float valor) {
 		// TODO Auto-generated method stub
+		
+	
 		
 	}
 
