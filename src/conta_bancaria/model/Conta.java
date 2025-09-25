@@ -10,6 +10,7 @@ public class Conta {
 	private String titular;
 	private float saldo;
 	
+	
 	//Método Contrutor 
 
 	
@@ -21,6 +22,9 @@ public class Conta {
 		this.saldo = saldo;
 	}
  
+
+	public Conta() {}
+	
 	//Método Get e Set
 	
 	public int getNumero() {
@@ -94,7 +98,7 @@ public class Conta {
 		System.out.printf("Número da agência: %d%n", this.agencia);
 		System.out.printf("Tipo da conta: %s%n", tipo);
 		System.out.printf("Titular da conta: %s%n", this.titular);
-		System.out.printf("Saldo da conta: %.2f%n", this.saldo);
+		System.out.printf("Saldo da conta: R$ %.2f%n", this.saldo);
 		
 			
 	}

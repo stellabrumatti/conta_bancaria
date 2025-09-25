@@ -3,11 +3,14 @@ package conta_bancaria;
 import java.util.Scanner;
 
 import conta_bancaria.model.Conta;
+import conta_bancaria.model.ContaCorrente;
+import conta_bancaria.model.ContaPoupanca;
 import conta_bancaria.util.Cores;
 
 public class Menu {
 
 	public static void main(String[] args) {
+		
 		Scanner leia = new Scanner(System.in);
 
 		int opcao;
@@ -18,27 +21,61 @@ public class Menu {
 		
 		Conta c2 = new Conta(2, 123, 2, "Priscila Lins", 500000.00f);
 		
-		System.out.println("O Saldo da conta é :" + c1.getSaldo());
+	   
+		
+		
+		
+		System.out.println("O Saldo da conta é : " + c1.getSaldo());
 
 		c1.setSaldo(600000.00f);
 		
-		System.out.println("O Saldo da conta é: " + c1.getSaldo());
+		System.out.println("O Saldo da conta é:  " + c1.getSaldo());
 		
 		c1.visualizar();
 		
 		c2.visualizar();
 		
 		System.out.println(c1.sacar(1000));
-		System.out.println("O Saldo da conta é: " + c1.getSaldo());
+		System.out.println("O Saldo da conta é:  " + c1.getSaldo());
 		
 		System.out.println(c2.sacar(1000000));
-		System.out.println("O Saldo da conta é: " + c2.getSaldo());
+		System.out.println("O Saldo da conta é:  " + c2.getSaldo());
 		
 		c1.depositar(5000);
-		System.out.println("O Saldo da conta é: " + c1.getSaldo());
+		System.out.println("O Saldo da conta é:  " + c1.getSaldo());
 		
+		//Instanciar Objetos da Classe ContaCorrente
 		
+		ContaCorrente cc1 = new ContaCorrente(3, 456, 1, "Thuany Silva", 1000000.00f, 100000.00f);
 		
+		cc1.visualizar();
+		
+		//Sacar Conta corrente
+		System.out.println(cc1.sacar(2000000.00f));
+		cc1.visualizar();
+		
+		System.out.println(cc1.sacar(2000.00f));
+		cc1.visualizar();
+		
+		//Depositar Conta Corrente
+		cc1.depositar(5000.00f);
+		cc1.visualizar();
+		
+		//Instanciar Objetos da Classe Conta Poupança
+		
+				ContaPoupanca cp1 = new ContaPoupanca(3, 345, 2, "Maria dos Santos", 100000,15);
+								cp1.visualizar();
+				
+				//Sacar Conta poupança
+				System.out.println(cp1.sacar(1000.00f));
+				cp1.visualizar();
+								
+												
+				//Depositar Conta popança
+				cp1.depositar(5000.00f);
+				cp1.visualizar();
+								
+				
 		while (true) {
 
 			System.out.println(Cores.TEXT_CYAN_BRIGHT + Cores.ANSI_BLACK_BACKGROUND
@@ -65,7 +102,7 @@ public class Menu {
 			opcao = leia.nextInt();
 
 			if (opcao == 0) {
-				System.out.println(Cores.TEXT_WHITE_BOLD + "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
+				System.out.println(Cores.TEXT_WHITE_BOLD + "\nBanco do Chiquinho - Onde vale a pena quardar mais um pouquinho!");
 				sobre();
 				leia.close();
 				System.exit(0);
@@ -113,8 +150,8 @@ public class Menu {
 
 	public static void sobre() {
 		System.out.println("\n*********************************************************");
-		System.out.println("Projeto Desenvolvido por: Stella Brumatti");
-		System.out.println("Entre em contato::. - stella.wma@gmail.com");
+		System.out.println("Projeto Desenvolvido por: ");
+		System.out.println("Stella Brumatti - stella.wma@gmail.com");
 		System.out.println("https://github.com/stellabrumatti/conta_bancaria.git");
 	
 
