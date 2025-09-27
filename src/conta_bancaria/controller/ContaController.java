@@ -8,12 +8,12 @@ import conta_bancaria.repository.ContaRepository;
 
 public class ContaController implements ContaRepository{
 	
-	private List<Conta> listarContas = new ArrayList<Conta>();
+	private List<Conta> listaContas = new ArrayList<Conta>();
 	int numero = 0;
 	
 	@Override
 	public void listarTodas() {
-		for(var conta : listarContas) {
+		for(var conta : listaContas) {
 			conta.visualizar();
 		}
 
@@ -22,7 +22,7 @@ public class ContaController implements ContaRepository{
 
 	@Override
 	public void cadastrar(Conta conta) {
-		listarContas.add(conta);
+		listaContas.add(conta);
 		System.out.println("Conta cadastrada com sucesso!");
 		
 	}
@@ -30,7 +30,17 @@ public class ContaController implements ContaRepository{
 	@Override
 	public void atualizar(Conta conta) {
 		
+var buscarConta = buscarNaCollection(conta.getNumero());
 		
+		if(buscarConta != null) {
+			listaContas.set(listaContas.indexOf(buscarConta), conta);
+			System.out.printf("\nA Conta número: %d foi atualizada com sucesso!%n", conta.getNumero());
+		}else {
+			System.out.printf("\nA Conta número: %d não foi encontrada!%n", conta.getNumero());
+		}
+		
+				
+				
 	}
 
 	@Override
@@ -65,4 +75,18 @@ public class ContaController implements ContaRepository{
 		
 	}
 
+	//Métodos Auxiliares
+	
+	public int gerarNumero() {
+		return ++ numero;
+	}
+	public Conta buscarNaCollection(int numero) {
+		for(var conta : listaContas) {
+			if(conta.getNumero() == numero) {
+				return conta;
+			}
+		}
+		
+		return null;
+	}
 }
